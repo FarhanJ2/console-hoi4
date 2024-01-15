@@ -1,0 +1,17 @@
+/home/jfarhan919/programming/dotnet/bin/Debug/net7.0/dotnet
+/home/jfarhan919/programming/dotnet/bin/Debug/net7.0/dotnet.deps.json
+/home/jfarhan919/programming/dotnet/bin/Debug/net7.0/dotnet.runtimeconfig.json
+/home/jfarhan919/programming/dotnet/bin/Debug/net7.0/dotnet.dll
+/home/jfarhan919/programming/dotnet/bin/Debug/net7.0/dotnet.pdb
+/home/jfarhan919/programming/dotnet/obj/Debug/net7.0/dotnet.csproj.AssemblyReference.cache
+/home/jfarhan919/programming/dotnet/obj/Debug/net7.0/dotnet.GeneratedMSBuildEditorConfig.editorconfig
+/home/jfarhan919/programming/dotnet/obj/Debug/net7.0/dotnet.AssemblyInfoInputs.cache
+/home/jfarhan919/programming/dotnet/obj/Debug/net7.0/dotnet.AssemblyInfo.cs
+/home/jfarhan919/programming/dotnet/obj/Debug/net7.0/dotnet.csproj.CoreCompileInputs.cache
+/home/jfarhan919/programming/dotnet/obj/Debug/net7.0/dotnet.dll
+/home/jfarhan919/programming/dotnet/obj/Debug/net7.0/refint/dotnet.dll
+/home/jfarhan919/programming/dotnet/obj/Debug/net7.0/dotnet.pdb
+/home/jfarhan919/programming/dotnet/obj/Debug/net7.0/dotnet.genruntimeconfig.cache
+/home/jfarhan919/programming/dotnet/obj/Debug/net7.0/ref/dotnet.dll
+/home/jfarhan919/programming/dotnet/bin/Debug/net7.0/Newtonsoft.Json.dll
+/home/jfarhan919/programming/dotnet/obj/Debug/net7.0/dotnet.csproj.CopyComplete

@@ -1,0 +1,37 @@
+{
+    "focusTree": {
+        "branches": [
+            {
+                "name": "German Consolidation",
+                "focuses": [
+                    {
+                        "name": "Rhineland",
+                        "effect": "The French and humiliating loss in the First World War will not stop us from moving German troops into German territory. We must let Germans be controlled by Germans",
+                        "completionEvent": "Germany_Remilitarizes_Rhineland",
+                        "timeToComplete": "80",
+                        "requirements": "Germany Exists"
+                    },
+                    {
+                        "name": "Anschluss",
+                        "effect": "Austria has been a German speaking and German ally for so long and both being losers of the First World War, annexing Austria will be a show of our power and Germans uniting once again.",
+                        "completionEvent": "Germany_Annex_Austria",
+                        "timeToComplete": "80",
+                        "requirements": "Germany Exists"
+                    }
+                ]
+            },
+            {
+                "name": "Economic Policies",
+                "focuses": [
+                    {
+                        "name": "German Economy",
+                        "effect": "Boosts industrial output",
+                        "completionEvent": "Industralization_Completed",
+                        "timeToComplete": "80",
+                        "requirements": "Germany Exists"
+                    }
+                ]
+            }
+        ]
+    }
+}
