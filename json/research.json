@@ -1,0 +1,74 @@
+{
+    "researchCategories": [
+      {
+        "name": "Land Doctrines",
+        "researchItems": [
+          {
+            "name": "Mobile Warfare",
+            "cost": 150,
+            "bonus": "Blitzkrieg",
+            "timeToComplete": 120
+          },
+          {
+            "name": "Grand Battle Plan",
+            "cost": 120,
+            "bonus": "Entrenchment",
+            "timeToComplete": 90
+          },
+          {
+            "name": "Mass Assault",
+            "cost": 100,
+            "bonus": "Attrition",
+            "timeToComplete": 80
+          }
+        ]
+      },
+      {
+        "name": "Naval Doctrines",
+        "researchItems": [
+          {
+            "name": "Fleet in Being",
+            "cost": 140,
+            "bonus": "Trade Interdiction",
+            "timeToComplete": 100
+          },
+          {
+            "name": "Base Strike",
+            "cost": 160,
+            "bonus": "Base Strike",
+            "timeToComplete": 120
+          },
+          {
+            "name": "Decisive Battle",
+            "cost": 120,
+            "bonus": "Surface Detection",
+            "timeToComplete": 90
+          }
+        ]
+      },
+      {
+        "name": "Air Doctrines",
+        "researchItems": [
+          {
+            "name": "Strategic Destruction",
+            "cost": 130,
+            "bonus": "Strategic Bombing",
+            "timeToComplete": 80
+          },
+          {
+            "name": "Operational Integrity",
+            "cost": 150,
+            "bonus": "Air Superiority",
+            "timeToComplete": 110
+          },
+          {
+            "name": "Tactical Bombing",
+            "cost": 110,
+            "bonus": "Ground Support",
+            "timeToComplete": 70
+          }
+        ]
+      }
+    ]
+  }
+  

@@ -1,0 +1,90 @@
+{
+    "countries": [
+      {
+        "name": "UnitedStates",
+        "manpower": 1500000,
+        "civilianFactories": 50,
+        "militaryFactories": 20,
+        "navalFactories": 10,
+        "resources": {
+          "oil": 50000,
+          "steel": 100000,
+          "aluminum": 30000,
+          "rubber": 20000
+        },
+        "leaders": {
+          "commander": "Dwight D. Eisenhower",
+          "advisor": "George C. Marshall"
+        }
+      },
+      {
+        "name": "Germany",
+        "manpower": 1200000,
+        "civilianFactories": 40,
+        "militaryFactories": 30,
+        "navalFactories": 15,
+        "resources": {
+          "oil": 30000,
+          "steel": 80000,
+          "aluminum": 20000,
+          "rubber": 10000
+        },
+        "leaders": {
+          "commander": "Adolf Hitler",
+          "advisor": "Heinz Guderian"
+        }
+      },
+      {
+        "name": "France",
+        "manpower": 800000,
+        "civilianFactories": 30,
+        "militaryFactories": 15,
+        "navalFactories": 8,
+        "resources": {
+          "oil": 20000,
+          "steel": 50000,
+          "aluminum": 15000,
+          "rubber": 8000
+        },
+        "leaders": {
+          "commander": "Charles de Gaulle",
+          "advisor": "Philippe Leclerc"
+        }
+      },
+      {
+        "name": "Italy",
+        "manpower": 600000,
+        "civilianFactories": 25,
+        "militaryFactories": 18,
+        "navalFactories": 10,
+        "resources": {
+          "oil": 15000,
+          "steel": 40000,
+          "aluminum": 10000,
+          "rubber": 5000
+        },
+        "leaders": {
+          "commander": "Benito Mussolini",
+          "advisor": "Rodolfo Graziani"
+        }
+      },
+      {
+        "name": "UnitedKingdom",
+        "manpower": 1000000,
+        "civilianFactories": 35,
+        "militaryFactories": 25,
+        "navalFactories": 12,
+        "resources": {
+          "oil": 25000,
+          "steel": 60000,
+          "aluminum": 18000,
+          "rubber": 12000
+        },
+        "leaders": {
+          "commander": "Bernard Montgomery",
+          "advisor": "Alan Brooke"
+        }
+      }
+    ]
+  }
+  

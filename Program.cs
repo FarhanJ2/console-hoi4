@@ -1,34 +1,39 @@
-﻿using Constants;
-
+﻿using System;
+using System.Diagnostics;
 public class Program
 {
-    public Country country;
+    // Country player is playing as
+    public Country.CountryName selectedCountry;
 
     public static void Main(string[] args)
     {
         Program programInstance = new Program();
         programInstance.GameLoad();
+
+        Game game = new Game();
+        game.Start();
     }
 
     private void GameLoad()
     {
         Console.WriteLine("HOI4 Loading...");
+        // Create new game or save game logic later
+
         Console.WriteLine("Please Select a Country to Choose From: ");
         
-        for (int i = 0; i < GAME_VARS.countryNames.Length; i++) 
+        foreach (string country in Enum.GetNames(typeof(Country.CountryName)))
         {
-            Console.WriteLine(i + ". " + GAME_VARS.countryNames[i]); 
+            Console.WriteLine($"{(int)Enum.Parse(typeof(Country.CountryName), country)}. {country}");
         }
-        
+
         int selection;
         while (!int.TryParse(Console.ReadLine(), out selection) || 
-                selection < 0 || selection >= GAME_VARS.countryNames.Length)
+                selection < 0 || selection >= Enum.GetNames(typeof(Country.CountryName)).Length)
         {
             Console.WriteLine("Invalid selection. Please choose a number from the list.");
         }
         
-        string selectedCountry = GAME_VARS.countryNames[selection];
-        country = new Country(selectedCountry);
+        selectedCountry = (Country.CountryName)Enum.Parse(typeof(Country.CountryName), Enum.GetNames(typeof(Country.CountryName))[selection]);
         Console.WriteLine($"You have selected {selectedCountry} as your starting country...\nStarting Game...");
         CountryLoad();
     }
@@ -38,53 +43,54 @@ public class Program
         Console.WriteLine("Loading Country...");
         Console.WriteLine("Select a Menu to Open");
 
-        for (int i = 0; i < Menu.menuOptions.Length; i++) 
+        foreach (string menuOption in Enum.GetNames(typeof(MenuHandle.MenuOptions)))
         {
-            Console.WriteLine(i + ". " + Menu.menuOptions[i]); 
+            Console.WriteLine($"{(int)Enum.Parse(typeof(MenuHandle.MenuOptions), menuOption)}. {menuOption}");
         }
         
         int selection;
         while (!int.TryParse(Console.ReadLine(), out selection) || 
-                selection < 0 || selection >= Menu.menuOptions.Length)
+                selection < 0 || selection >= Enum.GetNames(typeof(MenuHandle.MenuOptions)).Length)
         {
             Console.WriteLine("Invalid selection. Please choose a number from the list.");
         }
         
-        string selectedMenu = Menu.menuOptions[selection];
+        MenuHandle.MenuOptions selectedMenu = (MenuHandle.MenuOptions)Enum.Parse(typeof(MenuHandle.MenuOptions), Enum.GetNames(typeof(MenuHandle.MenuOptions))[selection]);
         MenuOpen(selectedMenu);
         
     }
 
-    private void MenuOpen(string menuName) {
+    private void MenuOpen(MenuHandle.MenuOptions menuName) 
+    {
         MenuHandle menuHandle = new MenuHandle();
         switch (menuName)
         {
-            case "Government":
+            case MenuHandle.MenuOptions.Government:
                 menuHandle.Government(this);
                 break;
-            case "Decisions":
+            case MenuHandle.MenuOptions.Decisions:
                 menuHandle.Decisions(this);
                 break;
-            case "Research":
+            case MenuHandle.MenuOptions.Research:
                 menuHandle.Research(this);
                 break;
-            case "Trade":
+            case MenuHandle.MenuOptions.Trade:
                 menuHandle.Trade(this);
                 break;
-            case "Production":
+            case MenuHandle.MenuOptions.Production:
                 menuHandle.Production(this);
                 break;
-            case "Recruit and Deploy":
+            case MenuHandle.MenuOptions.RecruitAndDeploy:
                 menuHandle.RecruitAndDeploy(this);
                 break;
-            case "Logistics":
+            case MenuHandle.MenuOptions.Logistics:
                 menuHandle.Logistics(this);
                 break;
-            case "Army":
+            case MenuHandle.MenuOptions.Army:
                 menuHandle.Army(this);
                 break;
-            case "List Stats":
-                menuHandle.ListStats(this);
+            case MenuHandle.MenuOptions.ListStats:
+                menuHandle.ListStats(selectedCountry);
                 break;      
         }
     }
