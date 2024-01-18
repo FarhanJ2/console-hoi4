@@ -8,7 +8,7 @@ using System;
 
 class Map
 {
-    static void Main()
+    static void MapFunction()
     {
         // Define map size
         int width = 20;
