@@ -65,3 +65,8 @@ public class Leaders
     public string Commander { get; set; }
     public string Advisor { get; set; }
 }
+
+public class NonPlayerCountryVariables
+{
+    public bool hasWargoal { get; set; }
+}

@@ -1,9 +1,14 @@
+using System.ComponentModel.DataAnnotations;
+using System.Reflection.Metadata.Ecma335;
+
 public class MenuHandle
 {
     CountryStats countryStats;
 
     public enum MenuOptions
     {
+        TestAddNotification,
+        Notifications,
         Government,
         Decisions,
         Research,
@@ -12,48 +17,72 @@ public class MenuHandle
         RecruitAndDeploy,
         Logistics,
         Army,
-        ListStats
+        ListStats,
+        QuitandSave
     }
 
-    public void Government(Program program)
+    public bool TestAddNotification()
     {
+        string title = Console.ReadLine();
+        string message = Console.ReadLine();
 
+        
+        Program.notifications.AddNotification(new Notification {
+            Title = title,
+            Message = message,
+            Type = NotificationType.Event,
+            Timestamp = new DateTime(1936, 1, 2)
+        });
+        return true;
     }
 
-    public void Decisions(Program program)
+    public bool Notifications()
     {
-
+        Program.notifications.OpenNotificationsLog();
+        return true;
     }
 
-    public void Research(Program program)
+    public bool Government(Program program)
     {
-
+        return true;
     }
 
-    public void Trade(Program program)
+    public bool Decisions(Program program)
     {
-
+        return true;
     }
 
-    public void Production(Program program)
+    public bool Research(Program program)
     {
-
+        return true;
     }
 
-    public void RecruitAndDeploy(Program program)
+    public bool Trade(Program program)
     {
-
+        return true;
     }
 
-    public void Logistics(Program program)
+    public bool Production(Program program)
     {
-
+        return true;
     }
 
-    public void Army(Program program)
-    {}
+    public bool RecruitAndDeploy(Program program)
+    {
+        return true;
+    }
 
-    public void ListStats(Country.CountryName country)
+    public bool Logistics(Program program)
+    {
+        return true;
+    }
+
+    public bool Army(Program program)
+    {
+        return true;
+    }
+
+    public bool ListStats(Country.CountryName country)
     {
         Console.WriteLine(country);
         CountryStats countryStats = CountryStats.LoadFromJson(Constants.filePathToCountryStats);
@@ -91,7 +120,15 @@ public class MenuHandle
         }
 
         Console.ReadLine();
+
+        return true;
     }
 
+    public bool QuitandSave()
+    {
+        Console.WriteLine("Saving Game...");
+        // Implement SaveGame.cs function here to save and then make a load function to load on start
+        return false;
+    }
 
 }

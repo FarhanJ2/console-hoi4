@@ -3,13 +3,52 @@ using System.Diagnostics;
 public class Program
 {
     // Country player is playing as
-    public Country.CountryName selectedCountry;
+    public static Country.CountryName selectedCountry;
+    // Notifications list to add to
+    public static Notifications notifications = new Notifications();
+    // public static FocusTree focusTree = new FocusTree(); // TODO: Uncomment this when the variable to send is found
 
     public static void Main(string[] args)
     {
+        notifications.AddNotification(new Notification {
+            Title = "Welcome to HOI4 Console App",
+            Message = "Welcome to the HOI4 Console App.",
+            Type = NotificationType.Event,
+            Timestamp = new DateTime(1936, 1, 1)
+        });
+
+        notifications.AddNotification(new Notification {
+            Title = "Testing Notifications",
+            Message = "This is a warning",
+            Type = NotificationType.Warning,
+            Timestamp = new DateTime(1936, 1, 1)
+        });
+
+        notifications.AddNotification(new Notification {
+            Title = "Testing Notifications",
+            Message = "This is an Error",
+            Type = NotificationType.Error,
+            Timestamp = new DateTime(1936, 1, 1)
+        });
+
+        notifications.AddNotification(new Notification {
+            Title = "Testing Notifications",
+            Message = "This is an Error",
+            Type = NotificationType.Error,
+            Timestamp = new DateTime(1936, 1, 1)
+        });
+
+        notifications.AddNotification(new Notification {
+            Title = "Testing Notifications",
+            Message = "This is an Error",
+            Type = NotificationType.Error,
+            Timestamp = new DateTime(1936, 1, 1)
+        });
+
         Program programInstance = new Program();
         programInstance.GameLoad();
 
+        // Timer logic
         Game game = new Game();
         game.Start();
     }
@@ -35,12 +74,12 @@ public class Program
         
         selectedCountry = (Country.CountryName)Enum.Parse(typeof(Country.CountryName), Enum.GetNames(typeof(Country.CountryName))[selection]);
         Console.WriteLine($"You have selected {selectedCountry} as your starting country...\nStarting Game...");
-        CountryLoad();
+        Console.WriteLine("Loading Country...");
+        MenuLoad();
     }
 
-    private void CountryLoad()
+    private void MenuLoad()
     {
-        Console.WriteLine("Loading Country...");
         Console.WriteLine("Select a Menu to Open");
 
         foreach (string menuOption in Enum.GetNames(typeof(MenuHandle.MenuOptions)))
@@ -56,42 +95,38 @@ public class Program
         }
         
         MenuHandle.MenuOptions selectedMenu = (MenuHandle.MenuOptions)Enum.Parse(typeof(MenuHandle.MenuOptions), Enum.GetNames(typeof(MenuHandle.MenuOptions))[selection]);
-        MenuOpen(selectedMenu);
-        
+        if (MenuOpen(selectedMenu)) MenuLoad();
     }
 
-    private void MenuOpen(MenuHandle.MenuOptions menuName) 
+    private bool MenuOpen(MenuHandle.MenuOptions menuName) 
     {
         MenuHandle menuHandle = new MenuHandle();
         switch (menuName)
         {
+            case MenuHandle.MenuOptions.TestAddNotification:
+                return menuHandle.TestAddNotification();
+            case MenuHandle.MenuOptions.Notifications:
+                return menuHandle.Notifications();
             case MenuHandle.MenuOptions.Government:
-                menuHandle.Government(this);
-                break;
+                return menuHandle.Government(this);
             case MenuHandle.MenuOptions.Decisions:
-                menuHandle.Decisions(this);
-                break;
+                return menuHandle.Decisions(this);
             case MenuHandle.MenuOptions.Research:
-                menuHandle.Research(this);
-                break;
+                return menuHandle.Research(this);
             case MenuHandle.MenuOptions.Trade:
-                menuHandle.Trade(this);
-                break;
+                return menuHandle.Trade(this);
             case MenuHandle.MenuOptions.Production:
-                menuHandle.Production(this);
-                break;
+                return menuHandle.Production(this);
             case MenuHandle.MenuOptions.RecruitAndDeploy:
-                menuHandle.RecruitAndDeploy(this);
-                break;
+                return menuHandle.RecruitAndDeploy(this);
             case MenuHandle.MenuOptions.Logistics:
-                menuHandle.Logistics(this);
-                break;
+                return menuHandle.Logistics(this);
             case MenuHandle.MenuOptions.Army:
-                menuHandle.Army(this);
-                break;
+                return menuHandle.Army(this);
             case MenuHandle.MenuOptions.ListStats:
-                menuHandle.ListStats(selectedCountry);
-                break;      
+                return menuHandle.ListStats(selectedCountry); 
         }
+
+        return false;
     }
 }   

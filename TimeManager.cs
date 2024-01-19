@@ -10,11 +10,12 @@ public class TimeManager
     private int currentHour = 0; // Start from midnight
     private bool isRunning = true;
 
-    public void Start()
+    public async Task StartAsync()
     {
+        await Task.Run(() => TimeLoop());
         // Start the time loop in a separate thread
-        Thread timeThread = new Thread(TimeLoop);
-        timeThread.Start();
+        // Thread timeThread = new Thread(TimeLoop);
+        // timeThread.Start();
     }
 
     public void Stop()
@@ -22,7 +23,7 @@ public class TimeManager
         isRunning = false;
     }
 
-    private void TimeLoop()
+    private async Task TimeLoop()
     {
         while (isRunning)
         {
@@ -42,7 +43,7 @@ public class TimeManager
             HandleDateTimeChange();
 
             // Wait for a short time before the next iteration
-            Thread.Sleep(1000); // 1 second (adjust as needed for your game speed)
+            await Task.Delay(1000); // 1 second (adjust as needed for your game speed)
         }
     }
 
@@ -66,12 +67,12 @@ public class Game
         timeManager.OnDateTimeChanged += HandleDateTimeChanged;
     }
 
-    public void Start()
+    public async void Start()
     {
         Console.WriteLine("Game started!");
 
         // Start the time manager
-        timeManager.Start();
+        await timeManager.StartAsync();
 
         // Your game logic can go here
 
